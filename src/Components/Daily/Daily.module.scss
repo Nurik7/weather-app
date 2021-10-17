@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+
+  .appHeader {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+
+    a {
+      text-decoration: none;
+      display: flex;
+      border-bottom: #ffb 1px solid;
+      justify-content: flex-end;
+      align-items: center;
+
+      &:hover img {
+        animation: arrow ease-in-out 1s infinite;
+      }
+
+      img {
+        transform: rotate(180deg);
+      }
+
+      img, span {
+        font-weight: 300;
+        color: #ffb;
+        text-decoration: none;
+        padding-bottom: 3px;
+        margin-top: 15px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+
+@keyframes arrow {
+  0% {
+    transform: rotate(180deg);
+    transition: transform .5s ease-in-out;
+  }
+  50% {
+    transition: transform .5s ease-in-out;
+    transform: rotate(180deg) translateX(10px);
+  }
+  100% {
+    transform: rotate(180deg);
+    transition: transform .5s ease-in-out;
+  }
+}
