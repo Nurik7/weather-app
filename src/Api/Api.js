@@ -13,5 +13,8 @@ export const weatherApi = {
   },
   daily(lat, lon) {
     return instance.get(`forecast/daily?lat=${lat}&lon=${lon}&units=metric&lang=ru&cnt=5&appid=cf10b6eda7817e86696f8e4106d14a27`)
+  },
+  certainCity(cityName, countryCode) {
+    return instance.get(`forecast?q=${cityName},${countryCode}&units=metric&lang=ru&appid=cf10b6eda7817e86696f8e4106d14a27`)
   }
 }

@@ -1,20 +1,9 @@
-import './Components/Main/Main.module.scss';
-import Main from "./Components/Main/Main";
-import {Route} from "react-router-dom";
-import Daily from "./Components/Daily/Daily";
+import {Main} from "./Pages/Main";
 
 function App() {
-  return (
-    <div>
-      <Route path={'/'} exact>
+    return (
         <Main/>
-      </Route>
-
-      <Route path={'/daily'} exact>
-        <Daily/>
-      </Route>
-    </div>
-  );
+    );
 }
 
 export default App;
