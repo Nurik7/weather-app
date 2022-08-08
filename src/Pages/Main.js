@@ -71,26 +71,32 @@ export const Main = () => {
 
     const handleCountrySelect = async (city, countryCode) => {
         setIsLoading(true)
-        const weeklyRes = await weatherApi.certainCity(city, countryCode)
-        setDailyWeather({list: weeklyRes.data.list, city: weeklyRes.data.city})
+        try {
+            const weeklyRes = await weatherApi.certainCity(city, countryCode)
+            setDailyWeather({list: weeklyRes.data.list, city: weeklyRes.data.city})
 
-        const locationRes = await weatherApi.byCoords(weeklyRes.data.city.coord.lat, weeklyRes.data.city.coord.lon)
-        let ms = (locationRes.data.dt) * 1000
-        let date = new Date(ms)
-        let {description, main} = locationRes.data.weather[0]
-        let {temp, feels_like, humidity, pressure} = locationRes.data.main
-        let {name, timezone} = locationRes.data
-        let {speed} = locationRes.data.wind
-        setSelectedCityTimezone(timezone)
-        calcTime(timezone)
-        temp = Math.round(temp)
-        description = description.charAt(0).toUpperCase() + description.slice(1)
-        if (temp > 0) {
-            temp = "+" + temp
+            const locationRes = await weatherApi.byCoords(weeklyRes.data.city.coord.lat, weeklyRes.data.city.coord.lon)
+            let ms = (locationRes.data.dt) * 1000
+            let date = new Date(ms)
+            let {description, main} = locationRes.data.weather[0]
+            let {temp, feels_like, humidity, pressure} = locationRes.data.main
+            let {name, timezone} = locationRes.data
+            let {speed} = locationRes.data.wind
+            setSelectedCityTimezone(timezone)
+            calcTime(timezone)
+            temp = Math.round(temp)
+            description = description.charAt(0).toUpperCase() + description.slice(1)
+            if (temp > 0) {
+                temp = "+" + temp
+            }
+            setCurrentLocationData({
+                name, temp, feels_like, description, main, date, humidity, pressure, speed
+            })
+            setIsSelectedCity(true)
+        } catch (e) {
+            console.log("ooops")
+            setIsSelectedCity(false)
         }
-        setCurrentLocationData({
-            name, temp, feels_like, description, main, date, humidity, pressure, speed
-        })
         setIsLoading(false)
     }
 
@@ -167,7 +173,7 @@ export const Main = () => {
             <Container>
                 <HeaderTop isSelectedCity={isSelectedCity}>
                     {isSelectedCity ? <CityName>{currentLocationData.name}</CityName> :
-                        <SelectCityButton>Выбрать город</SelectCityButton>}
+                        <SelectCityButton onClick={() => setIsModalOpen(true)}>Выбрать город</SelectCityButton>}
                     <CurrentTime>Сейчас {currentTime}</CurrentTime>
                 </HeaderTop>
                 <HeaderBottom>
