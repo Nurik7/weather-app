@@ -1,12 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- (c) ammap.com | SVG weather icons -->
-<svg
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="64"
-    height="64"
-    viewbox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewbox="0 0 64 64" viewBox="7 13 41.3 41.82">
     <defs>
         <filter id="blur" width="200%" height="200%">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -150,8 +142,8 @@
             </g>
         </g>
         <g transform="translate(34,46), rotate(10)">
-            <line class="am-weather-rain-1" fill="none" stroke="#91C0F8" stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(-6,1)" x1="0" x2="0" y1="0" y2="8" />
-            <line class="am-weather-rain-2" fill="none" stroke="#91C0F8" stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="8" />
+            <line class="am-weather-rain-1" fill="none" stroke="#91C0F8" stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(-6,1)" x1="0" x2="0" y1="0" y2="8"/>
+            <line class="am-weather-rain-2" fill="none" stroke="#91C0F8" stroke-dasharray="4,7" stroke-linecap="round" stroke-width="2" transform="translate(0,-1)" x1="0" x2="0" y1="0" y2="8"/>
         </g>
     </g>
 </svg>
